@@ -9,7 +9,7 @@ Project("{D954291E-2A0B-460D-934E-DC6B0785DB48}") = "PhotoDataViewer.Shared", "E
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PhotoDataViewer.Windows", "ExifViewer\ExifViewer.Windows\PhotoDataViewer.Windows.csproj", "{B4F3E4F1-A433-473D-A09D-BD0ED705E7FF}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PhotoDataViewer.WindowsPhone", "WindowsPhone\PhotoDataViewer.WindowsPhone.csproj", "{A11FE92E-0822-4E77-819A-1D271345624E}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PhotoDataViewer.WindowsPhone", "ExifViewer\ExifViewer.WindowsPhone\PhotoDataViewer.WindowsPhone.csproj", "{A11FE92E-0822-4E77-819A-1D271345624E}"
 EndProject
 Global
 	GlobalSection(SharedMSBuildProjectFiles) = preSolution

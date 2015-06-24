@@ -6,12 +6,12 @@ using System.Resources;
 // General Information about an assembly is controlled through the following 
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("WindowsPhone")]
-[assembly: AssemblyDescription("")]
+[assembly: AssemblyTitle("Photo Data Viewer")]
+[assembly: AssemblyDescription("Easily view complete information on your photos, from date/time marks to camera settings.")]
 [assembly: AssemblyConfiguration("")]
-[assembly: AssemblyCompany("")]
-[assembly: AssemblyProduct("WindowsPhone")]
-[assembly: AssemblyCopyright("Copyright ©  2015")]
+[assembly: AssemblyCompany("JoshuaKGoldberg")]
+[assembly: AssemblyProduct("Photo Data Viewer")]
+[assembly: AssemblyCopyright("Copyright © JoshuaKGoldberg 2015")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 

@@ -15,7 +15,7 @@
   </Resources>
   <Applications>
     <Application Id="App" Executable="$targetnametoken$.exe" EntryPoint="PhotoDataViewer.Windows.App">
-      <m2:VisualElements DisplayName="Photo Data Viewer" Square150x150Logo="Assets\Logo.png" Square30x30Logo="Assets\SmallLogo.png" Description="Easily view complete information on your photos, from date/time marks to camera settings." ForegroundText="light" BackgroundColor="#333333">
+      <m2:VisualElements DisplayName="Photo Data Viewer" Square150x150Logo="Assets\Logo.png" Square30x30Logo="Assets\SmallLogo.png" Description="Easily view complete information on your photos, from date/time marks to camera settings." ForegroundText="light" BackgroundColor="#333333" ToastCapable="false">
         <m2:DefaultTile ShortName="Photo Data Viewer" DefaultSize="square150x150Logo">
         </m2:DefaultTile>
         <m2:SplashScreen Image="Assets\SplashScreen.png" BackgroundColor="#333333" />
