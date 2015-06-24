@@ -1,0 +1,64 @@
+﻿<phone:PhoneApplicationPage
+    x:Class="WindowsPhone.AboutPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:phone="clr-namespace:Microsoft.Phone.Controls;assembly=Microsoft.Phone"
+    xmlns:shell="clr-namespace:Microsoft.Phone.Shell;assembly=Microsoft.Phone"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    FontFamily="{StaticResource PhoneFontFamilyNormal}"
+    FontSize="{StaticResource PhoneFontSizeNormal}"
+    Foreground="{StaticResource PhoneForegroundBrush}"
+    SupportedOrientations="Portrait" Orientation="Portrait"
+    mc:Ignorable="d"
+    shell:SystemTray.IsVisible="True">
+
+    <Grid x:Name="LayoutRoot">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <StackPanel Grid.Row="0" Margin="12,17,0,28">
+            <TextBlock Text="Photo Data Viewer" Style="{StaticResource PhoneTextNormalStyle}"/>
+            <TextBlock Text="about" Margin="9,-7,0,0" Style="{StaticResource PhoneTextTitle1Style}"/>
+        </StackPanel>
+
+        <ScrollViewer
+            Grid.Row="1"
+            VerticalScrollBarVisibility="Auto">
+            <StackPanel 
+                x:Name="ContentPanel" 
+                Margin="21,0,14,0">
+                <TextBlock TextWrapping="Wrap">
+                    JPEG photos contain hidden information related to their capture and camera. This information includes camera details, GPS coordinates, date, time, flash settings, and so on.
+                    <LineBreak/>
+                    <LineBreak/>In addition, Windows stores a large amount of information for each file, ranging from file location and metrics to photo settings. 
+                    <LineBreak/>
+                    <LineBreak/>This app views them all.
+                </TextBlock>
+                <TextBlock
+                    Name="VersionBlock"
+                    Margin="0,35,0,0"
+                    Text="Version ?.?.?"/>
+                <RichTextBox 
+                    BorderBrush="Transparent" 
+                    Margin="-11,0,0,0"
+                    Padding="0">
+                    <Paragraph>
+                        <Hyperlink Click="Hyperlink_Click">joshuakgoldberg@outlook.com</Hyperlink>
+                    </Paragraph>
+                </RichTextBox>
+                <TextBlock 
+                    Foreground="#FF5D5D5D"
+                    TextWrapping="Wrap">
+                    <LineBreak/>
+                    <LineBreak/>In case you were wondering, there's no difference between JPEG and JPG. 
+                    <LineBreak/>
+                    <LineBreak/>JPEG photos are smaller than PNGs and store exif data, but JPEG data compression algorithms can lower quality.
+                </TextBlock>
+            </StackPanel>
+        </ScrollViewer>
+    </Grid>
+
+</phone:PhoneApplicationPage>

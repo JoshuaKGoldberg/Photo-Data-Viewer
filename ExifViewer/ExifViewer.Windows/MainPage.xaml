@@ -1,0 +1,352 @@
+﻿<Page
+    x:Class="PhotoDataViewer.MainPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:PhotoDataViewer"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d">
+
+    <Page.Resources>
+        <!-- Sub-header styles -->
+        <Style x:Key="Subheaders" BasedOn="{StaticResource SubheaderTextBlockStyle}" TargetType="TextBlock">
+            <Setter Property="Padding" Value="10,14,0,0"/>
+        </Style>
+
+        <!-- Datum styles -->
+        <Style x:Key="DatumGeneral" TargetType="TextBlock">
+            <Setter Property="Padding" Value="7,14,0,14"/>
+            <Setter Property="TextWrapping" Value="Wrap"/>
+            <Setter Property="VerticalAlignment" Value="Center"/>
+        </Style>
+        <Style x:Key="DatumName" BasedOn="{StaticResource DatumGeneral}" TargetType="TextBlock">
+            <Setter Property="FontSize" Value="21"/>
+            <Setter Property="Margin" Value="0"/>
+        </Style>
+        <Style x:Key="DatumDisplayValue" BasedOn="{StaticResource DatumGeneral}" TargetType="TextBlock">
+            <Setter Property="FontSize" Value="28"/>
+            <Setter Property="LineHeight" Value="35"/>
+        </Style>
+    </Page.Resources>
+
+    <!-- Bottom command bar elements -->
+    <Page.BottomAppBar>
+        <CommandBar>
+            <AppBarButton
+                Icon="Clear"
+                Click="AppBarButton_Clear" 
+                Label="Clear"
+                Name="ButtonClear"
+                Visibility="Collapsed"/>
+            <AppBarButton 
+                Click="AppBarButton_Copy" 
+                Icon="Copy"
+                Label="Copy Text"
+                Name="ButtonCopy"
+                Visibility="Collapsed"/>
+            <AppBarButton
+                Icon="SelectAll" 
+                Click="AppBarButton_SelectAll" 
+                Label="Select All"/>
+            <AppBarButton 
+                Click="AppBarButton_Save" 
+                Icon="Save"
+                Label="Save All"/>
+        </CommandBar>
+    </Page.BottomAppBar>
+
+    <!-- Main page -->
+    <ScrollViewer 
+        Background="{ThemeResource ApplicationPageBackgroundThemeBrush}"
+        HorizontalScrollBarVisibility="Visible"
+        VerticalScrollBarVisibility="Disabled">
+        <Grid Margin="50">
+            <Grid.ChildrenTransitions>
+                <TransitionCollection>
+                    <EntranceThemeTransition/>
+                </TransitionCollection>
+            </Grid.ChildrenTransitions>
+
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="0"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="0"/>
+            </Grid.ColumnDefinitions>
+
+            <Grid.RowDefinitions>
+                <RowDefinition Height="0"/>
+                <RowDefinition Height="50"/>
+                <RowDefinition Height="25"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+
+            <!-- App name header -->
+            <TextBlock 
+                Grid.Column="1"
+                Grid.Row="1"
+                Name="Header"
+                Padding="4,0,0,0"
+                Text="{StaticResource AppName}" 
+                Style="{StaticResource HeaderTextBlockStyle}"/>
+
+            <!-- Main contents -->
+            <StackPanel
+                Grid.Column="1"
+                Grid.Row="3"
+                Orientation="Horizontal">
+
+                <!-- Left picture menu -->
+                <Grid Width="{StaticResource PhotoAreaWidth}">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="100"/>
+                        <RowDefinition Height="200"/>
+                        <RowDefinition Height="*"/>
+                    </Grid.RowDefinitions>
+
+                    <!-- "Choose a Photo" button -->
+                    <Button 
+                        Click="ChoosePhoto_Click"
+                        Content="Choose a Photo"
+                        Grid.Row="0"
+                        Width="260"
+                        VerticalAlignment="Stretch"/>
+
+                    <!-- Most recent photo -->
+                    <Border 
+                        Background="White"
+                        Grid.Row="1"
+                        Margin="2,0,0,0"
+                        Name="MostRecentPhotoBackground"
+                        Padding="4"
+                        Visibility="Collapsed"
+                        Width="254">
+                        <Image 
+                            Name="MostRecentPhoto" 
+                            HorizontalAlignment="Center"
+                            Stretch="UniformToFill"
+                            VerticalAlignment="Center"/>
+                    </Border>
+
+                    <!-- Recent photos list -->
+                    <ListView 
+                        Name="displayRecentImages"
+                        Grid.Row="2"
+                        SelectionMode="Single"
+                        Width="300">
+                        <ListView.ItemTemplate>
+                            <DataTemplate>
+                                <Border 
+                                    Background="#C4141414"
+                                    Height="150"
+                                    Margin="0,0,2,0"
+                                    Opacity=".7"
+                                    Padding="4"
+                                    Width="253">
+                                    <Image 
+                                        HorizontalAlignment="Center"
+                                        PointerPressed="ListPhoto_Click"
+                                        Stretch="UniformToFill"
+                                        Source="{Binding Image}"
+                                        VerticalAlignment="Center"/>
+                                </Border>
+                            </DataTemplate>
+                        </ListView.ItemTemplate>
+                    </ListView>
+                </Grid>
+
+                <!-- Basic data -->
+                <Grid Margin="35,-7,0,0" Name="GridBasicData">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="70"/>
+                        <RowDefinition Height="*"/>
+                    </Grid.RowDefinitions>
+
+                    <!-- Basic data header -->
+                    <Grid 
+                        Grid.Row="0"
+                        Name="SubHeaderBasic"
+                        Visibility="Collapsed">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="51"/>
+                            <ColumnDefinition Width="51"/>
+                        </Grid.ColumnDefinitions>
+
+                        <TextBlock
+                            Grid.Column="0"
+                            Style="{StaticResource Subheaders}"
+                            Text="Basic Data"/>
+                        <AppBarButton 
+                            Click="BasicDataList_Clear"
+                            Grid.Column="1"
+                            Icon="Clear"
+                            IsCompact="True"
+                            Name="BasicDataClearButton"
+                            Visibility="Collapsed"/>
+                        <AppBarButton 
+                            Click="BasicDataList_SelectAll"
+                            Grid.Column="2"
+                            Icon="SelectAll"
+                            IsCompact="True"/>
+                    </Grid>
+
+                    <!-- Basic data list -->
+                    <ListView 
+                        Grid.Row="1"
+                        VerticalContentAlignment="Top"
+                        ItemsSource="{Binding BasicData}"
+                        Name="BasicDataList"
+                        SelectionChanged="BasicDataList_SelectionChanged"
+                        SelectionMode="Multiple">
+                        <ListView.ItemTemplate>
+                            <DataTemplate>
+                                <Grid Width="560">
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="1*" />
+                                        <ColumnDefinition Width="3*" />
+                                    </Grid.ColumnDefinitions>
+                                    <TextBlock
+                                        Grid.Column="0"
+                                        Style="{StaticResource DatumName}"
+                                        Text="{Binding Name}"/>
+                                    <TextBlock
+                                        Grid.Column="1"
+                                        Style="{StaticResource DatumDisplayValue}" 
+                                        Text="{Binding DisplayValue}"/>
+                                </Grid>
+                            </DataTemplate>
+                        </ListView.ItemTemplate>
+                    </ListView>
+                </Grid>
+
+                <!-- Exif data -->
+                <Grid Margin="49,-7,0,0" Name="GridExifData">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="70"/>
+                        <RowDefinition Height="*"/>
+                    </Grid.RowDefinitions>
+                    
+                    <!-- Exif data header -->
+                    <Grid 
+                        Grid.Row="0"
+                        Name="SubHeaderExif"
+                        Visibility="Collapsed">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="51"/>
+                            <ColumnDefinition Width="51"/>
+                        </Grid.ColumnDefinitions>
+
+                        <TextBlock
+                            Grid.Column="0"
+                            Style="{StaticResource Subheaders}"
+                            Text="Exif Data"/>
+                        <AppBarButton 
+                            Click="ExifDataList_Clear"
+                            Grid.Column="1"
+                            Icon="Clear"
+                            IsCompact="True"
+                            Name="ExifDataClearButton"
+                            Visibility="Collapsed"/>
+                        <AppBarButton 
+                            Click="ExifDataList_SelectAll"
+                            Grid.Column="2"
+                            Icon="SelectAll"
+                            IsCompact="True"/>
+                    </Grid>
+                    
+                    <!-- Exif data list -->
+                    <ListView 
+                        Grid.Row="1"
+                        ItemsSource="{Binding ExifData}"
+                        Name="ExifDataList"
+                        SelectionChanged="ExifDataList_SelectionChanged"
+                        SelectionMode="Multiple">
+                        <ListView.ItemTemplate>
+                            <DataTemplate>
+                                <Grid Width="560">
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="1*" />
+                                        <ColumnDefinition Width="2*" />
+                                    </Grid.ColumnDefinitions>
+                                    <TextBlock
+                                        Grid.Column="0"
+                                        Style="{StaticResource DatumName}"
+                                        Text="{Binding Name}"/>
+                                    <TextBlock
+                                        Grid.Column="1"
+                                        Style="{StaticResource DatumDisplayValue}" 
+                                        Text="{Binding DisplayValue}"/>
+                                </Grid>
+                            </DataTemplate>
+                        </ListView.ItemTemplate>
+                    </ListView>
+                </Grid>
+
+                <!-- Full data -->
+                <Grid Margin="49,-7,0,0" Name="GridFullData">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="70"/>
+                        <RowDefinition Height="*"/>
+                    </Grid.RowDefinitions>
+
+                    <!-- Full data header -->
+                    <Grid 
+                        Grid.Row="0"
+                        Name="SubHeaderFull"
+                        Visibility="Collapsed">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="51"/>
+                            <ColumnDefinition Width="51"/>
+                        </Grid.ColumnDefinitions>
+
+                        <TextBlock
+                            Grid.Column="0"
+                            Style="{StaticResource Subheaders}"
+                            Text="Full Data"/>
+                        <AppBarButton 
+                            Click="FullDataList_Clear"
+                            Grid.Column="1"
+                            Icon="Clear"
+                            IsCompact="True"
+                            Name="FullDataClearButton"
+                            Visibility="Collapsed"/>
+                        <AppBarButton 
+                            Click="FullDataList_SelectAll"
+                            Grid.Column="2"
+                            Icon="SelectAll"
+                            IsCompact="True"/>
+                    </Grid>
+                    
+                    <!-- Full data list -->
+                    <ListView 
+                        Grid.Row="1"
+                        ItemsSource="{Binding FullData}"
+                        Name="FullDataList"
+                        SelectionChanged="FullDataList_SelectionChanged"
+                        SelectionMode="Multiple">
+                        <ListView.ItemTemplate>
+                            <DataTemplate>
+                                <Grid Width="700">
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="1*" />
+                                        <ColumnDefinition Width="2*" />
+                                    </Grid.ColumnDefinitions>
+                                    <TextBlock
+                                        Grid.Column="0"
+                                        Style="{StaticResource DatumName}"
+                                        Text="{Binding Name}"/>
+                                    <TextBlock
+                                        Grid.Column="1"
+                                        Style="{StaticResource DatumDisplayValue}" 
+                                        Text="{Binding DisplayValue}"/>
+                                </Grid>
+                            </DataTemplate>
+                        </ListView.ItemTemplate>
+                    </ListView>
+                </Grid>
+            </StackPanel>
+        </Grid>
+    </ScrollViewer>
+</Page>

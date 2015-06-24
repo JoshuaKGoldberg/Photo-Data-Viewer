@@ -1,0 +1,25 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Package xmlns="http://schemas.microsoft.com/appx/2010/manifest" xmlns:m2="http://schemas.microsoft.com/appx/2013/manifest">
+  <Identity Name="42151JoshGoldberg.PhotoDataViewer" Publisher="CN=96CB0D8E-CC11-428E-94A7-E54AD3AB3263" Version="1.1.0.0" />
+  <Properties>
+    <DisplayName>Photo Data Viewer</DisplayName>
+    <PublisherDisplayName>Josh Goldberg</PublisherDisplayName>
+    <Logo>Assets\StoreLogo.png</Logo>
+  </Properties>
+  <Prerequisites>
+    <OSMinVersion>6.3.0</OSMinVersion>
+    <OSMaxVersionTested>6.3.0</OSMaxVersionTested>
+  </Prerequisites>
+  <Resources>
+    <Resource Language="x-generate" />
+  </Resources>
+  <Applications>
+    <Application Id="App" Executable="$targetnametoken$.exe" EntryPoint="PhotoDataViewer.Windows.App">
+      <m2:VisualElements DisplayName="Photo Data Viewer" Square150x150Logo="Assets\Logo.png" Square30x30Logo="Assets\SmallLogo.png" Description="Easily view complete information on your photos, from date/time marks to camera settings." ForegroundText="light" BackgroundColor="#333333">
+        <m2:DefaultTile ShortName="Photo Data Viewer" DefaultSize="square150x150Logo">
+        </m2:DefaultTile>
+        <m2:SplashScreen Image="Assets\SplashScreen.png" BackgroundColor="#333333" />
+      </m2:VisualElements>
+    </Application>
+  </Applications>
+</Package>
