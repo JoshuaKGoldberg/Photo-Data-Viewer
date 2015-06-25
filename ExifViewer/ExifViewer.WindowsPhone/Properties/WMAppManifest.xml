@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Deployment xmlns="http://schemas.microsoft.com/windowsphone/2014/deployment" AppPlatformVersion="8.1">
   <DefaultLanguage xmlns="" code="en-US" />
-  <App xmlns="" ProductID="{a11fe92e-0822-4e77-819a-1d271345624e}" Title="Photo Data Viewer" RuntimeType="Silverlight" Version="1.0.0.0" Genre="apps.normal" Author="Joshua K Goldberg" Description="Easily view complete information on your photos, from date/time marks to camera settings." SDOptOut="false" BackUpOptOut="false" Publisher="JoshuaKGoldberg" PublisherID="{4e8d89d4-f6ef-4913-91cf-e5036d99429a}">
+  <App xmlns="" ProductID="{fab964b3-50b6-484e-a69c-ac81a698eb0d}" Title="Photo Data Viewer" RuntimeType="Silverlight" Version="1.0.0.0" Genre="apps.normal" Author="Josh Goldberg" Description="Easily view complete information on your photos, from date/time marks to camera settings." SDOptOut="false" BackUpOptOut="false" Publisher="Josh Goldberg" PublisherID="{4e8d89d4-f6ef-4913-91cf-e5036d99429a}">
     <IconPath IsRelative="true" IsResource="false">Assets\ApplicationIcon.png</IconPath>
     <Capabilities>
       <Capability Name="ID_CAP_NETWORKING" />

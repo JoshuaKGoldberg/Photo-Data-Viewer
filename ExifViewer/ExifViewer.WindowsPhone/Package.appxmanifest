@@ -1,10 +1,10 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Package xmlns="http://schemas.microsoft.com/appx/2010/manifest" xmlns:m2="http://schemas.microsoft.com/appx/2013/manifest" xmlns:m3="http://schemas.microsoft.com/appx/2014/manifest" xmlns:mp="http://schemas.microsoft.com/appx/2014/phone/manifest">
-  <Identity Name="fab964b3-50b6-484e-a69c-ac81a698eb0d" Publisher="CN=Josh" Version="1.0.0.0" />
+  <Identity Name="42151JoshGoldberg.PhotoDataViewer" Publisher="CN=96CB0D8E-CC11-428E-94A7-E54AD3AB3263" Version="1.0.0.0" />
   <mp:PhoneIdentity PhoneProductId="a11fe92e-0822-4e77-819a-1d271345624e" PhonePublisherId="4e8d89d4-f6ef-4913-91cf-e5036d99429a" />
   <Properties>
-    <DisplayName>PhotoDataViewer</DisplayName>
-    <PublisherDisplayName>JoshuaKGoldberg</PublisherDisplayName>
+    <DisplayName>Photo Data Viewer</DisplayName>
+    <PublisherDisplayName>Josh Goldberg</PublisherDisplayName>
     <Logo>Assets\StoreLogo.png</Logo>
   </Properties>
   <Prerequisites>

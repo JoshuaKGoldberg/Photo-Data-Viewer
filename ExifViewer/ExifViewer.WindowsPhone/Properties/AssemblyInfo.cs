@@ -9,9 +9,9 @@ using System.Resources;
 [assembly: AssemblyTitle("Photo Data Viewer")]
 [assembly: AssemblyDescription("Easily view complete information on your photos, from date/time marks to camera settings.")]
 [assembly: AssemblyConfiguration("")]
-[assembly: AssemblyCompany("JoshuaKGoldberg")]
+[assembly: AssemblyCompany("Josh Goldberg")]
 [assembly: AssemblyProduct("Photo Data Viewer")]
-[assembly: AssemblyCopyright("Copyright © JoshuaKGoldberg 2015")]
+[assembly: AssemblyCopyright("Copyright © Josh Goldberg 2015")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 
