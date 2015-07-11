@@ -48,6 +48,7 @@ namespace WindowsPhone
             if (app.FilePickerContinuationArgs != null)
             {
                 this.ChoosePhoto_Click_Continue(app.FilePickerContinuationArgs);
+                app.FilePickerContinuationArgs = null;
             }
         }
 
