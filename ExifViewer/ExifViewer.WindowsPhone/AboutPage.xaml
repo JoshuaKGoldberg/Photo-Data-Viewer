@@ -40,7 +40,7 @@
                 <TextBlock
                     Name="VersionBlock"
                     Margin="0,35,0,0"
-                    Text="Version ?.?.?"/>
+                    Text="Version 1.0.1"/>
                 <RichTextBox 
                     BorderBrush="Transparent" 
                     Margin="-11,0,0,0"
