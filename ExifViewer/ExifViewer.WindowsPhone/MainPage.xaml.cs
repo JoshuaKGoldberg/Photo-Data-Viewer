@@ -276,5 +276,11 @@ namespace WindowsPhone
         {
             NavigationService.Navigate(new Uri("/AboutPage.xaml", UriKind.Relative));
         }
+
+        private async void OpenBingMaps(object sender, object e)
+        {
+            string location = "bingmaps:?cp=40.726966~-74.006076";
+            await Windows.System.Launcher.LaunchUriAsync(new Uri(location));
+        }
     }
 }
